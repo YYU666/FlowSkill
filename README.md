@@ -95,6 +95,10 @@ FlowSkill starts after evidence is accepted. It helps answer: what did we learn,
 
 The integration contract is intentionally thin. See [docs/CEO_FLOW_INTEGRATION.md](docs/CEO_FLOW_INTEGRATION.md). CEO Flow should call `flowskill search ... --json` before dispatch and `flowskill capture --evidence ... --json` after accept; it should not embed FlowSkill internals inside the CEO Flow skill.
 
+## Known Issues
+
+FlowSkill is usable, but not finished. The current gaps are tracked in [docs/KNOWN_ISSUES.md](docs/KNOWN_ISSUES.md). The biggest known issues are weak tag inference from free-form Markdown, exported drafts needing human review before installation, and the lack of a one-command reviewed Codex skill install flow.
+
 ## Relationship To OpenSpace
 
 FlowSkill borrows the lightweight vocabulary of `CAPTURED`, `DERIVED`, and `FIX` skill evolution from HKUDS/OpenSpace. It does not copy OpenSpace's execution runtime, cloud community, dashboard, or task executor. The first version is CLI-first and local-only.
