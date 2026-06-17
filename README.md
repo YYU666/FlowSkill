@@ -26,6 +26,21 @@ node src\cli.js report
 
 After `npm link`, the same commands are available as `flowskill`.
 
+## Install As A Codex Skill
+
+FlowSkill has two parts:
+
+- the CLI in this repository
+- a thin Codex skill wrapper in `codex-skill/flowskill`
+
+To install the wrapper locally:
+
+```powershell
+Copy-Item -Recurse -Force .\codex-skill\flowskill "$env:USERPROFILE\.codex\skills\flowskill"
+```
+
+The wrapper tells Codex when to call the local CLI. It intentionally does not embed the CLI implementation in the skill prompt.
+
 ## Commands
 
 - `flowskill init`: create a local FlowSkill store.

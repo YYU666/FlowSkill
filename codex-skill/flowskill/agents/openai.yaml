@@ -1,0 +1,4 @@
+interface:
+  display_name: "FlowSkill"
+  short_description: "Capture and evolve CEO Flow skills locally"
+  default_prompt: "Use FlowSkill to search reusable skills before a CEO Flow task or capture a skill candidate after accepted evidence."
