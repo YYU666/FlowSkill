@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1 - 2026-06-17
+
+- Added an installable Codex skill wrapper under `codex-skill/flowskill`.
+- Documented the distinction between the FlowSkill CLI and the thin Codex skill prompt.
+
 ## 0.1.0 - 2026-06-17
 
 - Initial local-first FlowSkill CLI.
