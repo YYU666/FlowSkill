@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flowskill.local/schemas/failure.schema.json",
+  "title": "FlowSkill Failure Pattern",
+  "type": "object",
+  "required": ["schema_version", "id", "skill_id", "title", "root_cause", "avoid_next_time", "source"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "id": { "type": "string", "pattern": "^flowskill\\." },
+    "skill_id": { "type": "string" },
+    "title": { "type": "string" },
+    "trigger": { "type": "string" },
+    "symptom": { "type": "string" },
+    "root_cause": { "type": "string" },
+    "avoid_next_time": { "type": "string" },
+    "source": { "type": "object" },
+    "privacy_findings": { "type": "array", "items": { "type": "object" } }
+  }
+}

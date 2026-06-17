@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flowskill.local/schemas/ceoflow-evidence.schema.json",
+  "title": "CEO Flow Accepted Evidence Packet",
+  "type": "object",
+  "required": ["schema_version", "decision", "task", "evidence"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "decision": { "const": "accept" },
+    "task": {
+      "type": "object",
+      "required": ["id", "goal"],
+      "properties": {
+        "id": { "type": "string" },
+        "goal": { "type": "string" },
+        "domain": { "type": "array", "items": { "type": "string" } },
+        "write_set": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["summary", "reusable_pattern"],
+      "properties": {
+        "summary": { "type": "string" },
+        "reusable_pattern": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "artifacts": { "type": "array", "items": { "type": "string" } },
+        "tests": { "type": "array", "items": { "type": "string" } },
+        "residual_risk": { "type": "string" }
+      }
+    },
+    "privacy": {
+      "type": "object",
+      "properties": {
+        "may_contain_private_paths": { "type": "boolean" },
+        "public_candidate_allowed": { "type": "boolean" }
+      }
+    }
+  }
+}

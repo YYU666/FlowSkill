@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flowskill.local/schemas/candidate.schema.json",
+  "title": "FlowSkill Candidate",
+  "type": "object",
+  "required": ["schema_version", "id", "name", "status", "visibility", "summary", "reusable_pattern", "applies_to", "metrics", "lineage"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "id": { "type": "string", "pattern": "^flowskill\\." },
+    "name": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["candidate", "promoted", "rejected", "archived"] },
+    "visibility": { "enum": ["private", "public_candidate"] },
+    "summary": { "type": "string" },
+    "reusable_pattern": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "applies_to": { "type": "array", "items": { "type": "string" } },
+    "do_not_apply_to": { "type": "array", "items": { "type": "string" } },
+    "source": { "type": "object" },
+    "metrics": { "type": "object" },
+    "lineage": {
+      "type": "object",
+      "required": ["evolution_type"],
+      "properties": {
+        "parent_id": { "type": ["string", "null"] },
+        "evolution_type": { "enum": ["CAPTURED", "DERIVED", "FIX"] }
+      }
+    },
+    "privacy_findings": { "type": "array", "items": { "type": "object" } }
+  }
+}

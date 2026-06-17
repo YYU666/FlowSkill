@@ -1,0 +1,44 @@
+{
+  "name": "flowskill",
+  "version": "0.1.0",
+  "description": "Local-first skill evolution module for CEO Flow.",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YYU666/FlowSkill.git"
+  },
+  "homepage": "https://github.com/YYU666/FlowSkill#readme",
+  "bugs": {
+    "url": "https://github.com/YYU666/FlowSkill/issues"
+  },
+  "keywords": [
+    "ceo-flow",
+    "agent-skills",
+    "skill-evolution",
+    "local-first",
+    "cli"
+  ],
+  "files": [
+    "src",
+    "schemas",
+    "examples/accepted-report.md",
+    "examples/accepted-evidence-packet.json",
+    "examples/failure-report.md",
+    "docs",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "SECURITY.md"
+  ],
+  "bin": {
+    "flowskill": "./src/cli.js"
+  },
+  "scripts": {
+    "smoke": "node scripts/smoke.js",
+    "test": "node scripts/smoke.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}

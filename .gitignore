@@ -1,0 +1,14 @@
+node_modules/
+examples/.flowskill-smoke/
+*.tmp
+flowskill.json
+candidates/*
+skills/*
+failures/*
+exports/*
+metrics/*
+!candidates/.gitkeep
+!skills/.gitkeep
+!failures/.gitkeep
+!exports/.gitkeep
+!metrics/.gitkeep

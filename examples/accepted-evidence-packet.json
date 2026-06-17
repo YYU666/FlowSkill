@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "decision": "accept",
+  "task": {
+    "id": "FLOWOPS-VISUAL-QA-01",
+    "goal": "Frontend visual QA with responsive screenshot evidence",
+    "domain": ["frontend", "visual-qa", "playwright"],
+    "write_set": ["src/ui", "tests/visual"]
+  },
+  "evidence": {
+    "summary": "A focused visual QA pass accepted after desktop and mobile screenshots verified layout, overflow, and empty states.",
+    "reusable_pattern": [
+      "Define viewport coverage before dispatch.",
+      "Capture screenshots for only the changed workflow.",
+      "Check overflow, overlap, empty states, and mobile toolbar wrapping.",
+      "Record private artifact paths in evidence, but omit them from public skill drafts."
+    ],
+    "artifacts": ["private-artifact-redacted"],
+    "tests": ["playwright visual smoke"],
+    "residual_risk": "Manual product review is still needed for copy tone."
+  },
+  "privacy": {
+    "may_contain_private_paths": false,
+    "public_candidate_allowed": true
+  }
+}

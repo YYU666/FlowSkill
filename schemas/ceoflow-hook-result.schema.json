@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flowskill.local/schemas/ceoflow-hook-result.schema.json",
+  "title": "FlowSkill CEO Flow Hook Result",
+  "type": "object",
+  "required": ["command", "status"],
+  "properties": {
+    "command": {
+      "enum": [
+        "init",
+        "search",
+        "list",
+        "show",
+        "capture",
+        "score",
+        "promote",
+        "derive",
+        "reject",
+        "archive",
+        "evolve",
+        "export",
+        "scan",
+        "validate",
+        "report"
+      ]
+    },
+    "status": { "enum": ["ok", "error"] },
+    "candidate_id": { "type": "string" },
+    "skill_id": { "type": "string" },
+    "failure_id": { "type": "string" },
+    "evolved_candidate_id": { "type": "string" },
+    "output_path": { "type": "string" },
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["score", "kind", "id", "name"],
+        "properties": {
+          "score": { "type": "number" },
+          "kind": { "enum": ["skill", "candidate"] },
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "summary": { "type": "string" },
+        "status": { "type": "string" },
+          "visibility": { "type": "string" },
+          "applies_to": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "privacy": {
+      "type": "object",
+      "properties": {
+        "finding_count": { "type": "integer", "minimum": 0 },
+        "public_export_ready": { "type": "boolean" },
+        "findings": { "type": "array", "items": { "type": "object" } }
+      }
+    },
+    "counts": {
+      "type": "object"
+    },
+    "metrics": {
+      "type": "object"
+    },
+    "issues": {
+      "type": "array",
+      "items": { "type": "object" }
+    }
+  }
+}

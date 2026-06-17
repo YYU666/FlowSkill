@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flowskill.local/schemas/skill.schema.json",
+  "title": "FlowSkill Active Skill",
+  "type": "object",
+  "required": ["schema_version", "id", "name", "status", "visibility", "applies_to", "metrics", "lineage"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "id": { "type": "string", "pattern": "^flowskill\\." },
+    "name": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["active", "archived"] },
+    "visibility": { "enum": ["private", "public_candidate", "public"] },
+    "summary": { "type": "string" },
+    "applies_to": { "type": "array", "items": { "type": "string" } },
+    "do_not_apply_to": { "type": "array", "items": { "type": "string" } },
+    "source": { "type": "object" },
+    "metrics": { "$ref": "#/$defs/metrics" },
+    "lineage": { "$ref": "#/$defs/lineage" }
+  },
+  "$defs": {
+    "metrics": {
+      "type": "object",
+      "required": ["applied_count", "accepted_count", "revise_count", "blocked_count"],
+      "properties": {
+        "applied_count": { "type": "integer", "minimum": 0 },
+        "accepted_count": { "type": "integer", "minimum": 0 },
+        "revise_count": { "type": "integer", "minimum": 0 },
+        "blocked_count": { "type": "integer", "minimum": 0 },
+        "last_used_at": { "type": ["string", "null"] }
+      }
+    },
+    "lineage": {
+      "type": "object",
+      "required": ["evolution_type"],
+      "properties": {
+        "parent_id": { "type": ["string", "null"] },
+        "evolution_type": { "enum": ["CAPTURED", "DERIVED", "FIX"] }
+      }
+    }
+  }
+}
